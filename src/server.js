@@ -10,7 +10,6 @@
 import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import proxy from 'http-proxy-middleware';
 import bodyParser from 'body-parser';
 import expressJwt, { UnauthorizedError as Jwt401Error } from 'express-jwt';
 import {
@@ -72,42 +71,6 @@ app.use(bodyParser.json());
 /*
 * First setup for proxy to different backends
 * */
-app.use(
-  ['/email'],
-  proxy({
-    target: 'http://flex.netpulse.nl/mail',
-    changeOrigin: true,
-    pathRewrite: {
-      '^/email': '/', // rewrite path
-    },
-    onProxyReq(proxyReq, req) {
-      if (req.method === 'POST' && req.body) {
-        // Add req.body logic here if needed....
-        const oldBody = req.body;
-        oldBody.extra = 'some extra';
-
-        // Remove body-parser body object from the request
-        if (req.body) delete req.body;
-
-        // URI encode JSON object
-        const body = Object.keys(oldBody)
-          .map(
-            key =>
-              `${encodeURIComponent(key)}=${encodeURIComponent(oldBody[key])}`,
-          )
-          .join('&');
-
-        // Update header
-        proxyReq.setHeader('content-type', 'application/x-www-form-urlencoded');
-        proxyReq.setHeader('content-length', body.length);
-
-        // Write out body changes to the proxyReq stream
-        proxyReq.write(body);
-        proxyReq.end();
-      }
-    },
-  }),
-);
 
 //
 // Authentication

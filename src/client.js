@@ -100,8 +100,8 @@ async function onLocationChange(location, action) {
           const elem = document.getElementById('css');
           if (elem && elem.parentNode) elem.parentNode.removeChild(elem);
 
-          // const elem2 = document.getElementById('MUICSS');
-          // if (elem2 && elem2.parentNode) elem2.parentNode.removeChild(elem2);
+          const elem2 = document.getElementById('MUICSS');
+          if (elem2 && elem2.parentNode) elem2.parentNode.removeChild(elem2);
           return;
         }
 
