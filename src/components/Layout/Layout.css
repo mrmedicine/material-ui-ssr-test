@@ -1,0 +1,348 @@
+/**
+ * React Starter Kit (https://www.reactstarterkit.com/)
+ *
+ * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.txt file in the root directory of this source tree.
+ */
+
+@import '../variables.css';
+
+/*
+ * normalize.css is imported in JS file.
+ * If you import external CSS file from your internal CSS
+ * then it will be inlined and processed with CSS modules.
+ */
+
+/*
+ * Base styles
+ * ========================================================================== */
+
+html {
+  font-family: var(--font-family-base);
+}
+
+body {
+  margin: 0;
+  background-color: #f8f9fa;
+}
+
+a {
+  color: #0074c2;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Browser upgrade prompt
+ * ========================================================================== */
+
+:global(.browserupgrade) {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/*
+ * Print styles
+ * Inlined to avoid the additional HTTP request:
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important; /* Black prints faster: http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  abbr[title]::after {
+    content: ' (' attr(title) ')';
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+@font-face {
+  font-family: 'Menlo';
+  src:
+    url('./fonts/Menlo-Regular.woff2') format('woff2'),
+    url('./fonts/Menlo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100;
+  src:
+    local('Roboto Thin '),
+    local('Roboto-Thin'),
+    url('./fonts/roboto-latin-100.woff2') format('woff2'),
+    url('./fonts/roboto-latin-100.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-100italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100;
+  src:
+    local('Roboto Thin italic'),
+    local('Roboto-Thinitalic'),
+    url('./fonts/roboto-latin-100italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-100italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-300normal - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src:
+    local('Roboto Light '),
+    local('Roboto-Light'),
+    url('./fonts/roboto-latin-300.woff2') format('woff2'),
+    url('./fonts/roboto-latin-300.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-300italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300;
+  src:
+    local('Roboto Light italic'),
+    local('Roboto-Lightitalic'),
+    url('./fonts/roboto-latin-300italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-300italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-400normal - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Roboto Regular '),
+    local('Roboto-Regular'),
+    url('./fonts/roboto-latin-400.woff2') format('woff2'),
+    url('./fonts/roboto-latin-400.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-400italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src:
+    local('Roboto Regular italic'),
+    local('Roboto-Regularitalic'),
+    url('./fonts/roboto-latin-400italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-400italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-500normal - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    local('Roboto Medium '),
+    local('Roboto-Medium'),
+    url('./fonts/roboto-latin-500.woff2') format('woff2'),
+    url('./fonts/roboto-latin-500.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-500italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src:
+    local('Roboto Medium italic'),
+    local('Roboto-Mediumitalic'),
+    url('./fonts/roboto-latin-500italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-500italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-700normal - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    local('Roboto Bold '),
+    local('Roboto-Bold'),
+    url('./fonts/roboto-latin-700.woff2') format('woff2'),
+    url('./fonts/roboto-latin-700.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-700italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src:
+    local('Roboto Bold italic'),
+    local('Roboto-Bolditalic'),
+    url('./fonts/roboto-latin-700italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-700italic.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-900normal - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src:
+    local('Roboto Black '),
+    local('Roboto-Black'),
+    url('./fonts/roboto-latin-900.woff2') format('woff2'),
+    url('./fonts/roboto-latin-900.woff') format('woff'); /* Modern Browsers */
+}
+
+/* roboto-900italic - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 900;
+  src:
+    local('Roboto Black italic'),
+    local('Roboto-Blackitalic'),
+    url('./fonts/roboto-latin-900italic.woff2') format('woff2'),
+    url('./fonts/roboto-latin-900italic.woff') format('woff'); /* Modern Browsers */
+}
