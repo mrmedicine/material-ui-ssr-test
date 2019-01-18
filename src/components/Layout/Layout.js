@@ -13,7 +13,9 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 // external-global styles must be imported in your JS. antiquewhite
 import normalizeCss from 'normalize.css';
+import menus from 'routes/menus';
 import s from './Layout.css';
+import Footer from '../Footer';
 
 class Layout extends React.Component {
   static propTypes = {
@@ -22,11 +24,12 @@ class Layout extends React.Component {
   static defaultProps = {};
 
   render() {
+    // deep merge to defaultOptions
+
     return (
       <div>
-        <span>Header</span>
         {this.props.children}
-        <span>Footer</span>
+        <Footer menuData={menus.footer} />
       </div>
     );
   }

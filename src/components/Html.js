@@ -18,7 +18,7 @@ class Html extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    keywords: PropTypes.string.isRequired,
+    keywords: PropTypes.string,
     styles: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -33,6 +33,7 @@ class Html extends React.Component {
   static defaultProps = {
     styles: [],
     scripts: [],
+    keywords: '',
   };
 
   render() {
