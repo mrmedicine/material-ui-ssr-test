@@ -11,6 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import PictureInfoBlock from './PictureInfoBlock';
+import Link from '../../components/Link';
 
 import s from './Home.css';
 import info1 from './info1.jpg';
@@ -36,6 +37,7 @@ class Home extends React.Component {
     // this.props.title
     return (
       <div className={s.root}>
+        <Link to="/contact"> goto contact page! </Link>
         <PictureInfoBlock blocks={pictureBlocks} />
       </div>
     );

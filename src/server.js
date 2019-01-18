@@ -17,7 +17,8 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 // import { SheetsRegistry } from 'jss';
-import { JssProvider, SheetsRegistry } from 'react-jss';
+import { SheetsRegistry } from 'jss';
+import JssProvider from 'react-jss/lib/JssProvider';
 import { graphql } from 'graphql';
 import expressGraphQL from 'express-graphql';
 import jwt from 'jsonwebtoken';

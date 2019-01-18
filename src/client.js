@@ -11,6 +11,7 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import deepForceUpdate from 'react-deep-force-update';
+import JssProvider from 'react-jss/lib/JssProvider';
 import {
   MuiThemeProvider,
   createGenerateClassName,
@@ -86,9 +87,11 @@ async function onLocationChange(location, action) {
 
     const renderReactApp = isInitialRender ? ReactDOM.hydrate : ReactDOM.render;
     appInstance = renderReactApp(
-      <MuiThemeProvider theme={Theme} generateClassName={generateClassName}>
-        <App context={context}>{route.component}</App>
-      </MuiThemeProvider>,
+      <JssProvider generateClassName={generateClassName}>
+        <MuiThemeProvider theme={Theme}>
+          <App context={context}>{route.component}</App>
+        </MuiThemeProvider>
+      </JssProvider>,
       container,
       () => {
         if (isInitialRender) {

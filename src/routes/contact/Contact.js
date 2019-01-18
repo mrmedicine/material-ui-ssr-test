@@ -10,6 +10,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Link from '../../components/Link';
 
 const stylesJSS = theme => ({
   root: {
@@ -54,7 +55,11 @@ class Contact extends React.Component {
     const { props } = this;
     const { classes } = props;
     const { root } = classes;
-    return <div className={root}>test</div>;
+    return (
+      <div className={root}>
+        test<Link to="/">Go back home! </Link>
+      </div>
+    );
   }
 }
 
